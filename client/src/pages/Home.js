@@ -1,7 +1,10 @@
 import React from 'react';
+import Canvas from 'components/home/Canvas';
 import styled from 'styled-components';
 import mobilescreen from 'data/onlyfans.jpg';
 import mobilescreentwo from 'data/onlyfans2.png';
+import gplay from 'data/gplay.png';
+import Image from 'components/home/Image';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -49,7 +52,7 @@ const StyledLeft = styled.div`
     display: none;
   }
   img {
-    border-radius: 8px;
+    border-radius: 20px;
   }
   img:first-child {
     position: absolute;
@@ -62,15 +65,20 @@ const StyledLeft = styled.div`
     position: relative;
   }
 `;
-
+const StyledDownload = styled.img`
+  height: 4rem;
+  margin-top: 4rem;
+  cursor: pointer;
+  align-self: flex-start;
+`;
 const Home = () => {
   return (
     <StyledWrapper>
+      <Canvas/>
       <StyledContainer>
         <StyledLeft>
           <StyledLeftContent>
-            <img src={mobilescreentwo} alt="mobile screen"/>
-            <img src={mobilescreen} alt="mobile screen two"/>
+            <Image image={mobilescreen}/>
           </StyledLeftContent>
         </StyledLeft>
         <StyledRight>
@@ -80,6 +88,7 @@ const Home = () => {
           <p>
             Today's video is sponsored by Raid Shadow Legends, one of the biggest mobile role-playing games of 2019 and it's totally free!
           </p>
+          <StyledDownload src={gplay} alt="download"/>
         </StyledRight>
       </StyledContainer>
     </StyledWrapper>
