@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${props => props.theme.colorBackground};
@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   textarea {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 `
 
