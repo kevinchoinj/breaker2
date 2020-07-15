@@ -5,6 +5,7 @@ import StreamVods from 'pages/StreamVods';
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {lightData, darkData} from 'data/themeData';
 import {Switch, Route} from 'react-router-dom';
+import Navbar from 'components/navbar/Navbar';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -41,11 +42,12 @@ const App = () => {
     <ThemeProvider theme={dark ? darkData : lightData}>
       <GlobalStyle/>
       <StyledWrapper>
-          <Switch>
-            <Route exact path="/" render={(props) => <Home {...props}/>}/>
-            <Route exact path="/:id/vods" render={(props) => <StreamVods {...props}/>}/>
-            <Route exact path="/:id" render={(props) => <Stream {...props}/>}/>
-          </Switch>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/" render={(props) => <Home {...props}/>}/>
+          <Route exact path="/:id/vods" render={(props) => <StreamVods {...props}/>}/>
+          <Route exact path="/:id" render={(props) => <Stream {...props}/>}/>
+        </Switch>
       </StyledWrapper>
     </ThemeProvider>
   );
