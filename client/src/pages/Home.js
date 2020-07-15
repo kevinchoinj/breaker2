@@ -2,9 +2,9 @@ import React from 'react';
 import Canvas from 'components/home/Canvas';
 import styled from 'styled-components';
 import mobilescreen from 'data/onlyfans.jpg';
-import mobilescreentwo from 'data/onlyfans2.png';
 import gplay from 'data/gplay.png';
 import Image from 'components/home/Image';
+import Footer from 'components/home/Footer';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
   max-width: 1080px;
   width: 100%;
   display: grid;
+  position: relative;
   grid-template-columns: repeat(2,1fr);
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
@@ -31,13 +32,16 @@ const StyledRight = styled.div`
     font-size: 1.2rem;
   }
   h1 {
-    font-size: 6rem;
+    font-size: 5.5rem;
     font-weight: 700;
     margin: 0 0 2rem 0;
   }
   @media screen and (max-width: 768px) {
     padding-right: 0;
     padding: 0 1rem;
+    h1 {
+      font-size: 3.5rem;
+    }
   }
 `;
 const StyledLeftContent = styled.div`
@@ -91,6 +95,7 @@ const Home = () => {
           <StyledDownload src={gplay} alt="download"/>
         </StyledRight>
       </StyledContainer>
+      <Footer/>
     </StyledWrapper>
   );
 }

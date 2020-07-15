@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
     left: 0;
     top: 0;
     position: fixed;
-    opacity: .3;
+    opacity: .35;
   }
 `;
 
@@ -62,7 +62,6 @@ const Home = () => {
   function update(t) {
     requestAnimationFrame(update);
     program.uniforms.uTime.value = t * 0.001;
-    // Don't need a camera if camera uniforms aren't required
     renderer.render({scene: mesh});
   }
   }, [])

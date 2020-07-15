@@ -2,14 +2,14 @@ import React, {useEffect, useMemo, useRef, useState} from 'react';
 import styled from 'styled-components';
 
 const StyledBackground = styled.div`
-  opacity: 0.5;
+  opacity: .95;
   position: absolute;
   top: -10px;
   left: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95),
     opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -20,8 +20,8 @@ const StyledCard = styled.div`
   position: relative;
   flex: 0 0 280px;
   width: 280px;
-  height: 540px;
-  background-color: #333;
+  height: 550px;
+  background-color: #e0d6f5;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0;
@@ -35,8 +35,6 @@ const StyledCardWrapper = styled.div`
   &:hover {
     ${StyledBackground} {
       transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-        opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
-      opacity: .8;
     }
     ${StyledCard} {
       transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
@@ -62,7 +60,6 @@ const Card = ({image}) => {
   const [mouseY, setMouseY] = useState(0);
 
   const handleMouseMove = (e) => {
-    console.log(cardRef.current.getBoundingClientRect(), 'cardRef.current.offsetLeft');
     setMouseX(e.pageX - cardRef.current.getBoundingClientRect().left - width/2);
     setMouseY(e.pageY - cardRef.current.getBoundingClientRect().top - height/2);
   }

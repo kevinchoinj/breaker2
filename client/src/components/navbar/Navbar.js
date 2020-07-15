@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Link, withRouter} from 'react-router-dom';
 const StyledWrapper = styled.nav`
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
