@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Canvas from 'components/home/Canvas';
 import styled from 'styled-components';
 import mobilescreen from 'data/onlyfans.jpg';
@@ -12,6 +13,7 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: #fff;
 `;
 const StyledContainer = styled.div`
   max-width: 1080px;
@@ -95,7 +97,9 @@ const Home = () => {
           <p>
             Today's video is sponsored by Raid Shadow Legends, one of the biggest mobile role-playing games of 2019 and it's totally free!
           </p>
-          <StyledDownload src={gplay} alt="download"/>
+          <Link to="/example">
+            <StyledDownload src={gplay} alt="download"/>
+          </Link>
         </StyledRight>
       </StyledContainer>
       <Footer/>

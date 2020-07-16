@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import Home from 'pages/Home';
 import Stream from 'pages/Stream';
 import StreamVods from 'pages/StreamVods';
@@ -8,7 +9,7 @@ import {Switch, Route} from 'react-router-dom';
 import Navbar from 'components/navbar/Navbar';
 
 const StyledWrapper = styled.div`
-  height: 100%;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
+    background-color:${props => props.theme.colorBackground};
     margin: 0;
     height: 100%;
     font-family: ${props => props.theme.fontMain};
@@ -33,8 +35,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const App = () => {
-  const [dark, setDark] = useState(true);
+const App = ({dark}) => {
   return (
     <ThemeProvider theme={dark ? darkData : lightData}>
       <GlobalStyle/>
@@ -49,4 +50,10 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    dark: state.page.dark,
+  };
+};
+
+export default connect(mapStateToProps, null)(App);

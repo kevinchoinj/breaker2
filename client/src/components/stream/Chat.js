@@ -7,10 +7,11 @@ const StyledWrapper = styled.div`
   border-left: ${props => props.theme.border};
   background-color: ${props => props.theme.colorBackground};
   display: flex;
+  padding-bottom: 10px;
   flex-direction: column;
   font-size: 12px;
   @media screen and (max-width: 768px) {
-    flex: 1;
+    flex: 1.5;
     border-left: none;
     border-top: ${props => props.theme.border};
   }
@@ -19,7 +20,6 @@ const StyledLogs = styled.div`
   flex: 1;
 `;
 const StyledInputWrapper = styled.form`
-  flex: 0 0 100px;
   display: flex;
   flex-direction: column;
 `;
@@ -75,6 +75,7 @@ const StyledInputBottom = styled.div`
     padding: 0 10px;
     cursor: pointer;
     outline: none;
+    height: 100%;
     border-left: ${props => props.theme.border};
     &:hover {
       background-color: #772ce8;
@@ -89,6 +90,7 @@ const StyledHeader = styled.div`
   font-weight: 700;
   border-bottom: ${props => props.theme.border};
 `;
+
 const Chat = () => {
   return (
     <StyledWrapper>

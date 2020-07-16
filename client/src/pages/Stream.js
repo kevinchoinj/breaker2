@@ -10,16 +10,17 @@ import NavbarStream from 'components/navbar/NavbarStream';
 const StyledWrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   flex-direction: column;
 `;
 const StyledContainer = styled.div`
   display: flex;
   width: 100%;
   flex: 1;
+  height:100%;
   @media screen and (max-width: 768px) {
-  flex-direction: column;
-}
+    flex-direction: column;
+  }
 `;
 const Stream = ({match, setId}) => {
   useEffect(() => {
