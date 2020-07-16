@@ -7,7 +7,7 @@ const StyledWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@ const StyledWrapper = styled.div`
 const StyledContainer = styled.div`
   max-width: 1080px;
   font-size: 13px;
+  padding: 0 1rem;
   width: 100%;
   height: 100%;
   border-top: 1px solid #bbb;

@@ -5,6 +5,7 @@ import mobilescreen from 'data/onlyfans.jpg';
 import gplay from 'data/gplay.png';
 import Image from 'components/home/Image';
 import Footer from 'components/home/Footer';
+import Navbar from 'components/navbar/Navbar';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const StyledWrapper = styled.div`
 const StyledContainer = styled.div`
   max-width: 1080px;
   width: 100%;
+  max-height: 100%;
   display: grid;
   position: relative;
   grid-template-columns: repeat(2,1fr);
@@ -32,9 +34,9 @@ const StyledRight = styled.div`
     font-size: 1.2rem;
   }
   h1 {
-    font-size: 5.5rem;
+    font-size: 5rem;
     font-weight: 700;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
   }
   @media screen and (max-width: 768px) {
     padding-right: 0;
@@ -78,6 +80,7 @@ const StyledDownload = styled.img`
 const Home = () => {
   return (
     <StyledWrapper>
+      <Navbar/>
       <Canvas/>
       <StyledContainer>
         <StyledLeft>

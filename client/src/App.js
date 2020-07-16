@@ -24,9 +24,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${props => props.theme.colorBackground};
-    color: ${props => props.theme.colorText};
-    fill: ${props => props.theme.colorText};
   }
   * {
     box-sizing: border-box;
@@ -37,12 +34,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const App = () => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   return (
     <ThemeProvider theme={dark ? darkData : lightData}>
       <GlobalStyle/>
       <StyledWrapper>
-        <Navbar/>
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props}/>}/>
           <Route exact path="/:id/vods" render={(props) => <StreamVods {...props}/>}/>

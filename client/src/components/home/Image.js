@@ -8,6 +8,7 @@ const StyledBackground = styled.div`
   left: -10px;
   width: calc(100% + 20px);
   height: calc(100% + 20px);
+  max-height: 100%;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

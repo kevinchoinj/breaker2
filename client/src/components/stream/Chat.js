@@ -5,6 +5,7 @@ const StyledWrapper = styled.div`
   height: 100%;
   flex: 0 0 296px;
   border-left: ${props => props.theme.border};
+  background-color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: column;
   @media screen and (max-width: 768px) {
@@ -17,27 +18,29 @@ const StyledLogs = styled.div`
   flex: 1;
 `;
 const StyledInputWrapper = styled.form`
-  flex: 0 0 200px;
-  border-top: ${props => props.theme.border};
+  flex: 0 0 100px;
   display: flex;
   flex-direction: column;
 `;
 const StyledInputTop = styled.div`
   flex: 1;
   textarea {
-    height: 100%;
-    width: 100%;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
     resize: none;
     outline: none;
     border: none;
     font-size: 1rem;
     padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #3a3a3d;
   }
 `;
 const StyledInputBottom = styled.div`
   flex: 0 0 50px;
   display: flex;
-  border-top: ${props => props.theme.border};
+  padding: 10px;
   input, button{
     height: 100%;
     border: none;
@@ -47,10 +50,14 @@ const StyledInputBottom = styled.div`
     outline: none;
     font-size: 1rem;
     padding: 0 10px;
+    border-radius: 5px;
+    background-color: #3a3a3d;
   }
   button {
-    background-color: ${props => props.theme.colorText};
-    color: ${props => props.theme.colorBackground};
+    margin-left: 10px;
+    background-color: #9147ff;
+    color: #fff;
+    border-radius: 5px;
     font-size: 1rem;
     padding: 0 1rem;
     cursor: pointer;

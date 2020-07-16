@@ -30,7 +30,7 @@ const StyledLogo = styled(Link)`
   margin: 0;
   font-size: 1.5rem;
   text-decoration: none;
-  color: ${props => props.theme.colorText};
+  color: #000;
   @media screen and (max-width: 768px) {
     display: none;
   }
