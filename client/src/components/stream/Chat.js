@@ -8,6 +8,7 @@ const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorBackground};
   display: flex;
   flex-direction: column;
+  font-size: 12px;
   @media screen and (max-width: 768px) {
     flex: 1;
     border-left: none;
@@ -25,16 +26,21 @@ const StyledInputWrapper = styled.form`
 const StyledInputTop = styled.div`
   flex: 1;
   textarea {
-    height: calc(100% - 20px);
+    height: calc(100% - 10px);
     width: calc(100% - 20px);
     resize: none;
     outline: none;
     border: none;
     font-size: 1rem;
     padding: 10px;
-    margin: 10px;
+    margin: 10px 10px 0 10px;
     border-radius: 5px;
     background-color: #3a3a3d;
+    border: 2px solid transparent;
+    &:focus {
+      border: 2px solid #9147ff;
+      background-color: #000;
+    }
   }
 `;
 const StyledInputBottom = styled.div`
@@ -52,6 +58,11 @@ const StyledInputBottom = styled.div`
     padding: 0 10px;
     border-radius: 5px;
     background-color: #3a3a3d;
+    border: 2px solid transparent;
+    &:focus {
+      border: 2px solid #9147ff;
+      background-color: #000;
+    }
   }
   button {
     margin-left: 10px;
@@ -69,10 +80,20 @@ const StyledInputBottom = styled.div`
     }
   }
 `;
-
+const StyledHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  color: ${props => props.theme.colorText};
+  font-weight: 700;
+  border-bottom: ${props => props.theme.border};
+`;
 const Chat = () => {
   return (
     <StyledWrapper>
+      <StyledHeader>
+        STREAM CHAT
+      </StyledHeader>
       <StyledLogs>
         Chat
       </StyledLogs>
