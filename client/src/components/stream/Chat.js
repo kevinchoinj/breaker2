@@ -25,17 +25,18 @@ const StyledInputWrapper = styled.form`
 `;
 const StyledInputTop = styled.div`
   flex: 1;
+  padding: 10px 10px 0 10px;
   textarea {
-    height: calc(100% - 10px);
-    width: calc(100% - 20px);
+    height: 100%;
+    width: 100%;
     resize: none;
     outline: none;
     border: none;
-    font-size: 1rem;
-    padding: 10px;
-    margin: 10px 10px 0 10px;
+    font-size: 12px;
+    padding: 5px;
     border-radius: 5px;
     background-color: #3a3a3d;
+    color: ${props => props.theme.colorText};
     border: 2px solid transparent;
     &:focus {
       border: 2px solid #9147ff;
@@ -44,7 +45,6 @@ const StyledInputTop = styled.div`
   }
 `;
 const StyledInputBottom = styled.div`
-  flex: 0 0 50px;
   display: flex;
   padding: 10px;
   input, button{
@@ -52,13 +52,14 @@ const StyledInputBottom = styled.div`
     border: none;
   }
   input {
-    flex: 1;
+    flex: 1 1;
     outline: none;
-    font-size: 1rem;
-    padding: 0 10px;
+    font-size: 12px;
+    padding: 5px;
     border-radius: 5px;
     background-color: #3a3a3d;
     border: 2px solid transparent;
+    color: ${props => props.theme.colorText};
     &:focus {
       border: 2px solid #9147ff;
       background-color: #000;
@@ -66,17 +67,17 @@ const StyledInputBottom = styled.div`
   }
   button {
     margin-left: 10px;
+    font-weight: 700;
     background-color: #9147ff;
     color: #fff;
     border-radius: 5px;
-    font-size: 1rem;
-    padding: 0 1rem;
+    font-size: 12px;
+    padding: 0 10px;
     cursor: pointer;
     outline: none;
     border-left: ${props => props.theme.border};
     &:hover {
-      color: ${props => props.theme.colorText};
-      background-color: ${props => props.theme.colorBackground};
+      background-color: #772ce8;
     }
   }
 `;

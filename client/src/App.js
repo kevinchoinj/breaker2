@@ -21,15 +21,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     height: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: ${props => props.theme.fontMain};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   * {
     box-sizing: border-box;
   }
-  textarea {
-    font-family: 'Open Sans', sans-serif;
+  button, input, textarea {
+    font-family: ${props => props.theme.fontMain};
   }
 `
 
