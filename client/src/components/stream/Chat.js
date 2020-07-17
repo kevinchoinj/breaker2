@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {chat, setUsername} from 'actions/socket';
 import {Formik, Form, Field} from 'formik';
+import ChatMessages from 'components/stream/ChatMessages';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -18,9 +19,6 @@ const StyledWrapper = styled.div`
     border-left: none;
     border-top: ${props => props.theme.border};
   }
-`;
-const StyledLogs = styled.div`
-  flex: 1;
 `;
 const StyledForm = styled(Form)`
   display: flex;
@@ -83,6 +81,10 @@ const StyledInputBottom = styled.div`
     &:hover {
       background-color: #772ce8;
     }
+    &:disabled {
+      background-color: #444;
+      cursor: not-allowed;
+    }
   }
 `;
 const StyledHeader = styled.div`
@@ -94,15 +96,28 @@ const StyledHeader = styled.div`
   border-bottom: ${props => props.theme.border};
 `;
 
-const Chat = ({send, updateName}) => {
+const Chat = ({send, updateName, username}) => {
+
+  const onEnterPress = (e, submitForm) => {
+    if(e.keyCode == 13 && e.shiftKey == false) {
+      e.preventDefault();
+      submitForm();
+    }
+  }
+
+  const validUsername = useMemo (() => {
+    if (username && username !== "" && username?.length < 32) {
+      return true;
+    }
+    return false;
+  });
+
   return (
     <StyledWrapper>
       <StyledHeader>
         STREAM CHAT
       </StyledHeader>
-      <StyledLogs>
-        Chat
-      </StyledLogs>
+      <ChatMessages/>
 
       <Formik
         enableReinitialize
@@ -111,18 +126,31 @@ const Chat = ({send, updateName}) => {
           username: '',
           }}
           onSubmit={(values, {resetForm}) => {
-            send(values);
-            resetForm();
+            if (values?.message?.length < 200) {
+              send(values);
+              resetForm();
+            }
           }}
       >
-        {() =>
+        {({submitForm}) =>
           <StyledForm>
             <StyledInputTop>
-              <Field component="textarea" name="message" placeholder="Message"/>
+              {validUsername &&
+                <Field
+                  component="textarea"
+                  name="message"
+                  placeholder="Message"
+                  onKeyDown={(e) => onEnterPress(e, submitForm)}
+                />
+              }
             </StyledInputTop>
             <StyledInputBottom>
-              <input type="text" placeholder="Username" onChange={(e) => updateName({username: e.target.value})}/>
-              <button type="submit">
+              <input
+                type="text"
+                placeholder="Username"
+                onChange={(e) => updateName({username: e.target.value})}
+              />
+              <button type="submit" disabled={!validUsername}>
                 Chat
               </button>
             </StyledInputBottom>
@@ -134,6 +162,11 @@ const Chat = ({send, updateName}) => {
   )
 }
 
+const mapStateToProps = (state) => {
+  return {
+    username: state.socket.username,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     send: (message) => dispatch(chat(message)),
@@ -142,4 +175,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(null, mapDispatchToProps)(Chat);
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

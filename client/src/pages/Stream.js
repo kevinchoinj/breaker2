@@ -18,10 +18,12 @@ const StyledContainer = styled.div`
   width: 100%;
   flex: 1;
   height:100%;
+  overflow: hidden;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
+
 const Stream = ({match, setId}) => {
   useEffect(() => {
     setId(match.params.id);
