@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {chat, setUsername} from 'actions/socket';
+import {Formik, Form, Field} from 'formik';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -19,7 +22,7 @@ const StyledWrapper = styled.div`
 const StyledLogs = styled.div`
   flex: 1;
 `;
-const StyledInputWrapper = styled.form`
+const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
 `;
@@ -91,7 +94,7 @@ const StyledHeader = styled.div`
   border-bottom: ${props => props.theme.border};
 `;
 
-const Chat = () => {
+const Chat = ({send, setName}) => {
   return (
     <StyledWrapper>
       <StyledHeader>
@@ -100,19 +103,43 @@ const Chat = () => {
       <StyledLogs>
         Chat
       </StyledLogs>
-      <StyledInputWrapper>
-        <StyledInputTop>
-          <textarea placeholder="Message"/>
-        </StyledInputTop>
-        <StyledInputBottom>
-          <input type="text" placeholder="Username"/>
-          <button type="submit">
-            Chat
-          </button>
-        </StyledInputBottom>
-      </StyledInputWrapper>
+
+      <Formik
+        enableReinitialize
+        initialValues={{
+          message: '',
+          username: '',
+          }}
+          onSubmit={(values, {resetForm}) => {
+            send(values);
+            resetForm();
+          }}
+      >
+        {(values) =>
+          <StyledForm>
+            <StyledInputTop>
+              <Field component="textarea" name="message" placeholder="Message"/>
+            </StyledInputTop>
+            <StyledInputBottom>
+          <input type="text" placeholder="Username" onChange={(e) => setName(e.target.value)}/>
+              <button type="submit">
+                Chat
+              </button>
+            </StyledInputBottom>
+
+          </StyledForm>
+        }
+      </Formik>
     </StyledWrapper>
   )
 }
 
-export default Chat;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    send: (message) => dispatch(chat(message)),
+    setName: (name) => dispatch(setUsername(name)),
+  };
+};
+
+
+export default connect(null, mapDispatchToProps)(Chat);

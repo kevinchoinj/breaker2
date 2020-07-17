@@ -1,9 +1,8 @@
 import {useEffect} from 'react';
 import {connect} from 'react-redux';
-import io from 'socket.io-client';
 import {joinChat} from 'actions/socket';
 
-const SocketConnect = ({join}) => {
+const SocketConnect = ({join, send, setName}) => {
   useEffect(() => {
     join();
   }, [])
@@ -39,7 +38,7 @@ const SocketConnect = ({join}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    join: () => dispatch(joinChat())
+    join: () => dispatch(joinChat()),
   };
 };
 

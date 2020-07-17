@@ -1,7 +1,7 @@
 // From client
 import io from 'socket.io-client'
 
-let socket = io('https://api.bb.johnpyp.net')
+let socket = io('https://api.bb.johnpyp.net');
 
 // Helper to emit a redux action to our websocket server
 export const emitAction = (actionCreator) => {
