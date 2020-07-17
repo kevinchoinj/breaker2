@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import Home from 'pages/Home';
 import Stream from 'pages/Stream';
@@ -6,7 +6,6 @@ import StreamVods from 'pages/StreamVods';
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {lightData, darkData} from 'data/themeData';
 import {Switch, Route} from 'react-router-dom';
-import Navbar from 'components/navbar/Navbar';
 
 const StyledWrapper = styled.div`
   height: auto;
@@ -33,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   button, input, textarea {
     font-family: ${props => props.theme.fontMain};
   }
-`
+`;
 
 const App = ({dark}) => {
   return (

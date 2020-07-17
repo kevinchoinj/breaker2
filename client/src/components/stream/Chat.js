@@ -94,7 +94,7 @@ const StyledHeader = styled.div`
   border-bottom: ${props => props.theme.border};
 `;
 
-const Chat = ({send, setName}) => {
+const Chat = ({send, updateName}) => {
   return (
     <StyledWrapper>
       <StyledHeader>
@@ -115,13 +115,13 @@ const Chat = ({send, setName}) => {
             resetForm();
           }}
       >
-        {(values) =>
+        {() =>
           <StyledForm>
             <StyledInputTop>
               <Field component="textarea" name="message" placeholder="Message"/>
             </StyledInputTop>
             <StyledInputBottom>
-          <input type="text" placeholder="Username" onChange={(e) => setName(e.target.value)}/>
+              <input type="text" placeholder="Username" onChange={(e) => updateName({username: e.target.value})}/>
               <button type="submit">
                 Chat
               </button>
@@ -137,7 +137,7 @@ const Chat = ({send, setName}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     send: (message) => dispatch(chat(message)),
-    setName: (name) => dispatch(setUsername(name)),
+    updateName: (name) => dispatch(setUsername(name)),
   };
 };
 

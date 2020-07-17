@@ -4,4 +4,5 @@ export const messageTypes = keyMirror(
   "chat",
   "joinChat",
   "setUsername",
+  "receiveMessage",
 )
