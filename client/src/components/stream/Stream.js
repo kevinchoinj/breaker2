@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {withRouter} from 'react-router-dom';
+import SocketConnect from 'components/stream/SocketConnect';
 
 const StyledWrapper = styled.div`
   height: 100%;
@@ -10,6 +11,7 @@ const StyledWrapper = styled.div`
 const Stream = () => {
   return (
     <StyledWrapper>
+      <SocketConnect/>
     </StyledWrapper>
   )
 }

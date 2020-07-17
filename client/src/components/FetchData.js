@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect (null, mapDispatchToProps)(FetchData);
+export default connect(null, mapDispatchToProps)(FetchData);

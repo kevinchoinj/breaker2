@@ -75,7 +75,7 @@ const StyledInputBottom = styled.div`
     padding: 0 10px;
     cursor: pointer;
     outline: none;
-    height: 100%;
+    height: 31px;
     border-left: ${props => props.theme.border};
     &:hover {
       background-color: #772ce8;

@@ -11,6 +11,9 @@ const StyledWrapper = styled.nav`
   align-items: center;
   font-weight: 700;
   border-bottom: 1px solid #000;
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 const NavbarStream = () => {
