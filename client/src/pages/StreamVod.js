@@ -5,11 +5,14 @@ import {withRouter} from 'react-router-dom';
 import { setId } from 'actions/page';
 import NavbarStream from 'components/navbar/NavbarStream';
 import FetchVideos from 'components/stream/FetchVideos';
+import VideoPlayer from 'components/stream/VideoPlayer';
 
 const StyledWrapper = styled.div`
+  display: flex;
   height: 100%;
-  flex: 1;
+  height: 100vh;
   color: ${props => props.theme.colorText};
+  flex-direction: column;
 `;
 const StyledContainer = styled.div`
   display: flex;
@@ -25,12 +28,26 @@ const StreamVod = ({match, setId}) => {
   useEffect(() => {
     setId(match.params.id);
   }, [match])
+  console.log(match);
   return (
     <StyledWrapper>
       <FetchVideos/>
       <NavbarStream/>
       <StyledContainer>
-        VIDEO
+        <VideoPlayer
+          options={
+            {
+              autoplay: true,
+              controls: true,
+              sources: [
+                {
+                  src: `https://api.bb.johnpyp.net/vods/${match.params.id}/${match.params.videoId}.mp4`,
+                  type: "video/mp4"
+                }
+              ]
+            }
+          }
+        />
       </StyledContainer>
     </StyledWrapper>
   )

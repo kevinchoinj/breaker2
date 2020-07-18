@@ -8,6 +8,7 @@ import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {lightData, darkData} from 'data/themeData';
 import {Switch, Route} from 'react-router-dom';
 import "react-toggle/style.css";
+import "video.js/dist/video-js.min.css";
 
 const StyledWrapper = styled.div`
   height: auto;
