@@ -5,11 +5,11 @@ import {withRouter} from 'react-router-dom';
 import { setId } from 'actions/page';
 import NavbarStream from 'components/navbar/NavbarStream';
 import FetchVideos from 'components/stream/FetchVideos';
-import VodsDisplay from 'components/stream/VodsDisplay';
 
 const StyledWrapper = styled.div`
   height: 100%;
   flex: 1;
+  color: ${props => props.theme.colorText};
 `;
 const StyledContainer = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
     flex-direction: column;
   }
 `;
-const StreamVods = ({match, setId}) => {
+const StreamVod = ({match, setId}) => {
   useEffect(() => {
     setId(match.params.id);
   }, [match])
@@ -30,7 +30,7 @@ const StreamVods = ({match, setId}) => {
       <FetchVideos/>
       <NavbarStream/>
       <StyledContainer>
-        <VodsDisplay/>
+        VIDEO
       </StyledContainer>
     </StyledWrapper>
   )
@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(withRouter(StreamVods));
+export default connect(null, mapDispatchToProps)(withRouter(StreamVod));

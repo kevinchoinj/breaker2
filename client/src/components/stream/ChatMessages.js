@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {format} from 'date-fns';
+import dayjs from 'dayjs';
 
 const StyledWrapper = styled.div`
   padding: 10px;
@@ -34,7 +34,7 @@ const ChatMessages = ({chat, timestamps}) => {
           <StyledRow key={`${values.timestamp}-${values.username}`}>
             {timestamps &&
               <StyledTimestamp>
-                {format(values.timestamp, 'HH:MM')}
+                {dayjs(values.timestamp).format('HH:MM')}
               </StyledTimestamp>
             }
             <b>{values.username}</b>: {values.message}

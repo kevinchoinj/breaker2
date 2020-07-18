@@ -97,7 +97,7 @@ const Home = () => {
           <p>
             Today's video is sponsored by Raid Shadow Legends, one of the biggest mobile role-playing games of 2019 and it's totally free!
           </p>
-          <Link to="/example">
+          <Link to="/SystemNameUntil">
             <StyledDownload src={gplay} alt="download"/>
           </Link>
         </StyledRight>

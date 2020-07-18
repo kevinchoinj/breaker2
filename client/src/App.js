@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Home from 'pages/Home';
 import Stream from 'pages/Stream';
 import StreamVods from 'pages/StreamVods';
+import StreamVod from 'pages/StreamVod';
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {lightData, darkData} from 'data/themeData';
 import {Switch, Route} from 'react-router-dom';
@@ -42,7 +43,8 @@ const App = ({dark}) => {
       <StyledWrapper>
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props}/>}/>
-          <Route exact path="/:id/vods" render={(props) => <StreamVods {...props}/>}/>
+          <Route exact path="/:id/videos/:videoId" render={(props) => <StreamVod {...props}/>}/>
+          <Route exact path="/:id/videos" render={(props) => <StreamVods {...props}/>}/>
           <Route exact path="/:id" render={(props) => <Stream {...props}/>}/>
         </Switch>
       </StyledWrapper>
