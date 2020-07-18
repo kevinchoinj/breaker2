@@ -6,6 +6,8 @@ export const lightData = {
   colorPrimary: '#9147ff',
   colorInput: '#ddd',
   colorInputFocus: '#fff',
+  colorSelectable: '#e9ecf3',
+  colorSelectableHover: '#c8d0e1',
 }
 
 export const darkData = {
@@ -16,4 +18,6 @@ export const darkData = {
   colorPrimary: '#9147ff',
   colorInput: '#3a3a3d',
   colorInputFocus: '#000',
+  colorSelectable: '#333',
+  colorSelectableHover: '#555',
 }

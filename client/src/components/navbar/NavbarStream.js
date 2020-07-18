@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import SettingsMenu from 'components/navbar/SettingsMenu';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 const StyledWrapper = styled.nav`
   height: 50px;
@@ -42,8 +42,12 @@ const StyledLinks = styled.div`
   margin-right: 1rem;
   font-size: 13px;
 `;
+const StyledLink = styled(Link)`
+  opacity: ${props => props['data-active'] && '.6'};
+  cursor: ${props => props['data-active'] && 'default'};
+`;
 
-const NavbarStream = ({id}) => {
+const NavbarStream = ({id, match}) => {
   return (
     <StyledWrapper>
       <StyledLogo to="/">
@@ -51,12 +55,12 @@ const NavbarStream = ({id}) => {
       </StyledLogo>
       <StyledOptions>
         <StyledLinks>
-          <Link to={`/${id}`}>
+          <StyledLink to={`/${id}`} data-active={match.path === "/:id"}>
             Stream
-          </Link>
-          <Link to={`/${id}/videos`}>
+          </StyledLink>
+          <StyledLink to={`/${id}/videos`} data-active={match.path === "/:id/videos"}>
             Videos
-          </Link>
+          </StyledLink>
         </StyledLinks>
         <SettingsMenu/>
       </StyledOptions>
@@ -70,4 +74,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(NavbarStream);
+export default connect(mapStateToProps, null)(withRouter(NavbarStream));
