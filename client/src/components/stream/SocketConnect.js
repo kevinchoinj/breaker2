@@ -6,33 +6,6 @@ const SocketConnect = ({join, send, setName}) => {
   useEffect(() => {
     join();
   }, [])
-  /*
-  useEffect(() => {
-
-    const socket = io('https://api.bb.johnpyp.net/socket.io');
-
-    socket.on('connect', () => {
-      socket.emit("joinChat", {"query": 'SystemNameUntil'});
-    });
-    socket.emit("setUsername", {
-      slug: 'SystemNameUntil',
-      username: 'bob'
-    });
-
-    socket.emit("chat", {
-      slug: 'SystemNameUntil',
-      message: 'ooooooooooooooooooo'
-    });
-
-  socket.on('chat', (res) => {
-    console.log('chaaaaaaaaaaaaat');
-    if (res) {
-     // receiveMessage(res);
-    }
-  });
-
-  }, []);
-  */
   return null;
 }
 

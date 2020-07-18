@@ -36,12 +36,12 @@ const StyledInputTop = styled.div`
     font-size: 12px;
     padding: 5px;
     border-radius: 5px;
-    background-color: #3a3a3d;
+    background-color: ${props => props.theme.colorInput};
     color: ${props => props.theme.colorText};
     border: 2px solid transparent;
     &:focus {
       border: 2px solid #9147ff;
-      background-color: #000;
+      background-color: ${props => props.theme.colorInputFocus};
     }
   }
 `;
@@ -58,12 +58,12 @@ const StyledInputBottom = styled.div`
     font-size: 12px;
     padding: 5px;
     border-radius: 5px;
-    background-color: #3a3a3d;
+    background-color: ${props => props.theme.colorInput};
     border: 2px solid transparent;
     color: ${props => props.theme.colorText};
     &:focus {
       border: 2px solid #9147ff;
-      background-color: #000;
+      background-color: ${props => props.theme.colorInputFocus};
     }
   }
   button {

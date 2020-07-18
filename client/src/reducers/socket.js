@@ -17,7 +17,7 @@ export default (state = DEFAULT_STATE, action) =>
         draft.username = action.payload.username;
         break;
       case 'RECEIVE_MESSAGE':
-        draft.chat.push(action.data);
+        draft.chat.push({...action.data, timestamp: Date.now()});
         break;
       default:
         break;

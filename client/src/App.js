@@ -6,6 +6,7 @@ import StreamVods from 'pages/StreamVods';
 import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {lightData, darkData} from 'data/themeData';
 import {Switch, Route} from 'react-router-dom';
+import "react-toggle/style.css";
 
 const StyledWrapper = styled.div`
   height: auto;
