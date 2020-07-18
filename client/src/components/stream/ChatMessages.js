@@ -49,7 +49,7 @@ const ChatMessages = ({chat, timestamps}) => {
 const mapStateToProps = (state) => {
   return {
     chat: state.socket.chat,
-    timestamps: state.page.timestamps,
+    timestamps: state.ui.timestamps,
   };
 };
 

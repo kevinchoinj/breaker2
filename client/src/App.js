@@ -55,7 +55,7 @@ const App = ({dark}) => {
 
 const mapStateToProps = (state) => {
   return {
-    dark: state.page.dark,
+    dark: state.ui.dark,
   };
 };
 

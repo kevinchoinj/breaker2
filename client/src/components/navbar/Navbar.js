@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link, withRouter} from 'react-router-dom';
+
 const StyledWrapper = styled.nav`
   position: fixed;
   z-index: 2;
@@ -35,7 +36,7 @@ const StyledLogo = styled(Link)`
     display: none;
   }
 `;
-const Navbar = ({location, setDark}) => {
+const Navbar = ({location}) => {
   console.log(location);
   return (
     <StyledWrapper>

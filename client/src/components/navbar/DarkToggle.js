@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {setDark} from 'actions/page';
+import {setDark} from 'actions/ui';
 
 const StyledWrapper = styled.div`
 
@@ -39,7 +39,7 @@ const DarkToggle = ({dark, darkToggle}) => {
 
 const mapStateToProps = (state) => {
   return {
-    dark: state.page.dark,
+    dark: state.ui.dark,
   };
 };
 

@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import Toggle from 'react-toggle';
-import {setDark, setTimestamps} from 'actions/page';
+import {setDark, setTimestamps} from 'actions/ui';
 
 const StyledBlock = styled.div`
   height: 100%;
@@ -107,8 +107,8 @@ const SettingsMenu = ({
 
 const mapStateToProps = (state) => {
   return {
-    dark: state.page.dark,
-    timestamps: state.page.timestamps,
+    dark: state.ui.dark,
+    timestamps: state.ui.timestamps,
   };
 };
 
