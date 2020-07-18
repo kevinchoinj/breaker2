@@ -6,6 +6,8 @@ import { setId } from 'actions/page';
 import StreamComponent from 'components/stream/Stream';
 import Chat from 'components/stream/Chat';
 import NavbarStream from 'components/navbar/NavbarStream';
+import SocketConnect from 'components/stream/SocketConnect';
+import FetchLive from 'components/stream/FetchLive';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -30,6 +32,8 @@ const Stream = ({match, setId}) => {
   }, [match])
   return (
     <StyledWrapper>
+      <FetchLive/>
+      <SocketConnect/>
       <NavbarStream/>
       <StyledContainer>
         <StreamComponent/>

@@ -35,7 +35,6 @@ export const chat = emitAction((data) => {
 })
 
 export const setUsername = emitAction((data) => {
-  console.log(data);
   return {
     type: actions.SET_USERNAME,
     key: messageTypes.setUsername,
