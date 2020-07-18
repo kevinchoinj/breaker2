@@ -8,6 +8,7 @@ import Chat from 'components/stream/Chat';
 import NavbarStream from 'components/navbar/NavbarStream';
 import SocketConnect from 'components/stream/SocketConnect';
 import FetchLive from 'components/stream/FetchLive';
+import ExpandChat from 'components/stream/ExpandChat';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const StyledContainer = styled.div`
   flex: 1;
   height:100%;
   overflow: hidden;
+  position: relative;
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
@@ -38,6 +40,7 @@ const Stream = ({match, setId}) => {
       <StyledContainer>
         <StreamComponent/>
         <Chat/>
+        <ExpandChat/>
       </StyledContainer>
     </StyledWrapper>
   )

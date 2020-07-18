@@ -4,13 +4,14 @@ import {connect} from 'react-redux';
 import {chat, setUsername} from 'actions/socket';
 import {Formik, Form, Field} from 'formik';
 import ChatMessages from 'components/stream/ChatMessages';
+import {setExpandedChat} from 'actions/ui';
 
 const StyledWrapper = styled.div`
   height: 100%;
   flex: 0 0 296px;
   border-left: ${props => props.theme.border};
   background-color: ${props => props.theme.colorBackground};
-  display: flex;
+  display: ${props => props.hidden ? 'none' : 'flex'};
   padding-bottom: 10px;
   flex-direction: column;
   font-size: 12px;
@@ -94,9 +95,21 @@ const StyledHeader = styled.div`
   color: ${props => props.theme.colorText};
   font-weight: 700;
   border-bottom: ${props => props.theme.border};
+  position: relative;
+  svg {
+    fill: ${props => props.theme.colorText};
+    left: 10px;
+    position: absolute;
+    height: 18px;
+    cursor: pointer;
+    transition: .2s ease;
+    &:hover {
+      fill: ${props => props.theme.colorPrimary};
+    }
+  }
 `;
 
-const Chat = ({send, updateName, username}) => {
+const Chat = ({expandedChat, send, toggleExpandedChat, updateName, username}) => {
 
   const onEnterPress = (e, submitForm) => {
     if(e.keyCode == 13 && e.shiftKey == false) {
@@ -113,8 +126,12 @@ const Chat = ({send, updateName, username}) => {
   });
 
   return (
-    <StyledWrapper>
+    <StyledWrapper hidden={!expandedChat}>
       <StyledHeader>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        onClick={() => toggleExpandedChat(false)}>
+          <path d="M12 8v-5l9 9-9 9v-5h-12v-8h12zm12-4h-3v16h3v-16z"/>
+        </svg>
         STREAM CHAT
       </StyledHeader>
       <ChatMessages/>
@@ -165,14 +182,15 @@ const Chat = ({send, updateName, username}) => {
 const mapStateToProps = (state) => {
   return {
     username: state.socket.username,
+    expandedChat: state.ui.expandedChat,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     send: (message) => dispatch(chat(message)),
     updateName: (name) => dispatch(setUsername(name)),
+    toggleExpandedChat: (bool) => dispatch(setExpandedChat(bool)),
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);

@@ -1,11 +1,13 @@
 import {
   SET_DARK,
   SET_TIMESTAMPS,
+  SET_EXPANDED_CHAT,
 } from 'actions/ui';
 
 const DEFAULT_STATE={
   dark: true,
   timestamps: false,
+  expandedChat: true,
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -20,6 +22,11 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       timestamps: payload.payload,
+    };
+  case SET_EXPANDED_CHAT:
+    return state = {
+      ...state,
+      expandedChat: payload.payload,
     };
   default:
     return state;
