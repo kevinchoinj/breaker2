@@ -112,7 +112,7 @@ const StyledHeader = styled.div`
 const Chat = ({expandedChat, send, slug, toggleExpandedChat, updateName, username}) => {
 
   const onEnterPress = (e, submitForm) => {
-    if(e.keyCode == 13 && e.shiftKey == false) {
+    if(e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       submitForm();
     }
@@ -123,7 +123,7 @@ const Chat = ({expandedChat, send, slug, toggleExpandedChat, updateName, usernam
       return true;
     }
     return false;
-  });
+  }, [username]);
 
   return (
     <StyledWrapper hidden={!expandedChat}>

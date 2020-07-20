@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
 const StreamVods = ({match, setId}) => {
   useEffect(() => {
     setId(match.params.id);
-  }, [match])
+  }, [match, setId]);
   return (
     <StyledWrapper>
       <FetchVideos/>
