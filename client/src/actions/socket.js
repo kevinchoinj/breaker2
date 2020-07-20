@@ -15,7 +15,6 @@ export const joinChat = emitAction((data) => {
     type: actions.JOIN_CHAT,
     key: messageTypes.joinChat,
     payload: {
-      slug: 'SystemNameUntil',
       timestamp: new Date().toISOString(),
       ...data
     }
@@ -27,7 +26,6 @@ export const chat = emitAction((data) => {
     type: actions.CHAT,
     key: messageTypes.chat,
     payload: {
-      slug: 'SystemNameUntil',
       timestamp: new Date().toISOString(),
       ...data
     }
@@ -39,7 +37,6 @@ export const setUsername = emitAction((data) => {
     type: actions.SET_USERNAME,
     key: messageTypes.setUsername,
     payload: {
-      slug: 'SystemNameUntil',
       timestamp: new Date().toISOString(),
       ...data
     }

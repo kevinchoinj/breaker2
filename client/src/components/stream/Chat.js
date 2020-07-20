@@ -109,7 +109,7 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Chat = ({expandedChat, send, toggleExpandedChat, updateName, username}) => {
+const Chat = ({expandedChat, send, slug, toggleExpandedChat, updateName, username}) => {
 
   const onEnterPress = (e, submitForm) => {
     if(e.keyCode == 13 && e.shiftKey == false) {
@@ -141,6 +141,7 @@ const Chat = ({expandedChat, send, toggleExpandedChat, updateName, username}) =>
         initialValues={{
           message: '',
           username: '',
+          slug: slug,
           }}
           onSubmit={(values, {resetForm}) => {
             if (values?.message?.length < 200) {
@@ -165,7 +166,7 @@ const Chat = ({expandedChat, send, toggleExpandedChat, updateName, username}) =>
               <input
                 type="text"
                 placeholder="Username"
-                onChange={(e) => updateName({username: e.target.value})}
+                onChange={(e) => updateName({username: e.target.value, slug: slug})}
               />
               <button type="submit" disabled={!validUsername}>
                 Chat
@@ -183,6 +184,7 @@ const mapStateToProps = (state) => {
   return {
     username: state.socket.username,
     expandedChat: state.ui.expandedChat,
+    slug: state.page.id,
   };
 };
 const mapDispatchToProps = (dispatch) => {

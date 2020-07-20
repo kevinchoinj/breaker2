@@ -2,18 +2,23 @@ import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {joinChat} from 'actions/socket';
 
-const SocketConnect = ({join, send, setName}) => {
+const SocketConnect = ({join, slug}) => {
   useEffect(() => {
-    join();
-  }, [])
+    join(slug);
+  }, [slug])
   return null;
 }
 
+const mapStateToProps = (state) => {
+  return {
+    slug: state.page.id,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
-    join: () => dispatch(joinChat()),
+    join: (slug) => dispatch(joinChat({slug: slug})),
   };
 };
 
 
-export default connect(null, mapDispatchToProps)(SocketConnect);
+export default connect(mapStateToProps, mapDispatchToProps)(SocketConnect);
