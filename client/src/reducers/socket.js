@@ -17,7 +17,14 @@ export default (state = DEFAULT_STATE, action) =>
         draft.username = action.payload.username;
         break;
       case 'RECEIVE_MESSAGE':
-        draft.chat.push({...action.data, timestamp: Date.now()});
+        console.log(draft.chat.length, 'LENGTH')
+        if (draft.chat.length < 50) {
+          draft.chat.push({...action.data, timestamp: Date.now()});
+        }
+        else {
+          draft.chat.push({...action.data, timestamp: Date.now()});
+          draft.chat.shift();
+        }
         break;
       default:
         break;

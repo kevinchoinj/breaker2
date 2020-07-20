@@ -78,9 +78,8 @@ const SettingsMenu = ({
   }, []);
 
   return (
-    <StyledBlock ref={menuRef} data-active={active}>
+    <StyledBlock ref={menuRef} data-active={active} onClick={(e) => toggleMenu(e)}>
       <svg
-        onClick={(e) => toggleMenu(e)}
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"
